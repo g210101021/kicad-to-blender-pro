@@ -84,7 +84,13 @@ def import_kicad_wrl(filepath, pcb_filepath="", soldermask_preset='GREEN', use_p
         pcb_file = pcb_parser.auto_detect_kicad_pcb(filepath)
         
     if pcb_file and os.path.exists(pcb_file):
-        bpy.context.scene.kicad_custom_pcb_path = pcb_file
+        if hasattr(bpy.context.scene, 'kicad_custom_pcb_path'):
+            try:
+                bpy.context.scene.kicad_custom_pcb_path = pcb_file
+            except Exception:
+                bpy.context.scene["kicad_custom_pcb_path"] = pcb_file
+        else:
+            bpy.context.scene["kicad_custom_pcb_path"] = pcb_file
         
     # 6. In raw VRML space, match meshes to footprints, join each component, and classify
     joined_components = cleaner.name_and_classify_components(
