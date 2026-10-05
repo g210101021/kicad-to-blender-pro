@@ -1,5 +1,6 @@
-# [FINISHED PROJECT] KiCad to Blender Pro
+# [ON PROGRESS] KiCad to Blender Pro
 
+[![Status](https://img.shields.io/badge/Status-On%20Progress%20%2F%20Active%20Development-orange.svg)]()
 [![Blender](https://img.shields.io/badge/Blender-4.2%20LTS%20%7C%205.x-E87D0D?logo=blender&logoColor=white)](https://www.blender.org/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![KiCad Compatibility](https://img.shields.io/badge/KiCad-v6%20%7C%20v7%20%7C%20v8-314CB0?logo=kicad&logoColor=white)](https://www.kicad.org/)
@@ -246,6 +247,20 @@ blender --command extension build --source-dir kicad_pcb_tools --output-dir .
 
 ---
 
-## 10. License
+## 10. Development Roadmap (Active Milestones)
+
+- [x] **Milestone 1: Geometry & Stackup Ingestion** — S-Expression parser, VRML mesh loader, and coordinate normalizer.
+- [x] **Milestone 2: Anti Z-Fighting Engine** — Micro-physical layer offsets ($35\,\mu\text{m} - 55\,\mu\text{m}$) across FR4, Copper, Mask, and Silkscreen.
+- [x] **Milestone 3: Optical Spectroscopy Shaders** — Annealed copper foil (`#FAB78A`), ENIG gold, HASL solder, dielectric mask absorption.
+- [x] **Milestone 4: Parametric Footprint Library** — 19 IPC-7351 packages with 6-segment curved leads in `footprints.blend`.
+- [x] **Milestone 5: Production Test Automation** — Headless 7-stage integration test suite passing on 110-footprint dense board.
+- [ ] **Milestone 6: Active LED Emission Engine** — Automatic detection of LEDs (`D1`, `LED_*`) with procedural glow, lumen intensity, and color selection.
+- [ ] **Milestone 7: Procedural Laser-Etched IC Markings** — Procedural shader nodes for manufacturer logos, part numbers, and Pin 1 indicators.
+- [ ] **Milestone 8: Exploded View Interactive Slider** — Z-axis separation slider floating layers, silkscreen, traces, and components for presentations.
+- [ ] **Milestone 9: Cinematic Turntable Trajectory** — One-click automated 360° product turntable animation with depth-of-field target tracking.
+
+---
+
+## 11. License
 
 This project is licensed under the GNU General Public License v3.0 (`SPDX:GPL-3.0-or-later`). See the [LICENSE](LICENSE) file for the full text.
