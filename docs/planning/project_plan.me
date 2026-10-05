@@ -1,0 +1,32 @@
+# KiCad to Blender Pro - Proje İlerleme Durumu
+
+## Tamamlanan Özellikler:
+1. ✅ VRML / WRL Akıllı İçe Aktarma Motoru (X3D entegrasyonu).
+2. ✅ Sıfır Z-Fighting (Mikron seviyesinde fiziksel katman kalınlık ofsetleri).
+3. ✅ Fotogerçekçi PBR Materyaller (FR4 epoksi, renkli lehim maskesi, altın ENIG, kalay HASL, beyaz serigrafi).
+4. ✅ Otomatik Stüdyo Aydınlatması ve Kamera Sahneleme.
+5. ✅ Sahne Koruma: Sahnede önceden var olan modellerin küçülmesini engelleme (Sahne scale_length korunur, izolasyon uygulanır).
+6. ✅ Manuel .kicad_pcb Dosyası Seçici (Arayüzde ve import penceresinde).
+7. ✅ Kusursuz Konumsal Eşleşme (Spatial Coordinate Matching):
+   - Bounding-box merkezi yerine obj.location konumsal koordinatları kullanıldı (X_vrml = pos_x, -Z_vrml = pos_y).
+   - 0.5 mm altı toleransla 6000+ alt mesh hiçbir hata veya kayma olmadan tam 108 adet KiCad footprint'ine eşlendi (0 eşleşmeyen parça).
+   - Her komponentin gövdesi, bacakları ve pini tek bir parça halinde birleştirildi (örn. C16_1uF, R8_470R, U5_RP2040, J1_USB_C).
+8. ✅ Kesin İşlem Sırası (Pipeline Strict Order):
+   - 1. VRML Import & Ham nesne izolasyonu
+   - 2. Katman ayırma ve PBR materyal atama
+   - 3. Ham VRML uzayında konumsal eşleme ve bileşen birleştirme
+   - 4. Kartı yatay konuma getirme (-90° X), FR4 merkezini (0,0,0)'a hizalama
+   - 5. Sadece PCB nesnelerini mm'den gerçek dünya metresine (0.001) dönüştürme ve transform_apply
+   - 6. Metrik Z-ofsetlerinin uygulanması
+   - 7. Stüdyo ışıkları ve kamera konumlandırma
+9. ✅ Otomatik Hiyerarşik Sınıflandırma:
+   - "05_Components" koleksiyonu altında otomatik alt koleksiyonlar oluşturuldu:
+     * 01_Capacitors (37 adet)
+     * 02_Resistors (45 adet)
+     * 03_Integrated_Circuits (9 adet)
+     * 04_Transistors_FETs (1 adet)
+     * 05_Diodes_LEDs (4 adet)
+     * 06_Switches_Buttons (5 adet)
+     * 07_Connectors_Headers (5 adet)
+     * 08_Crystals_Oscillators (1 adet)
+     * 11_Audio_Buzzers (1 adet)

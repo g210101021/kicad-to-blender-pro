@@ -1,0 +1,17 @@
+schema_version = "1.0.0"
+id = "kicad_pcb_tools"
+version = "1.1.0"
+name = "KiCad to Blender Pro"
+tagline = "Photorealistic KiCad PCB importer and studio renderer"
+maintainer = "Veysel TURAN <g210101021@subu.edu.tr>"
+type = "add-on"
+tags = ["Import-Export", "3D View"]
+blender_version_min = "4.2.0"
+license = [
+    "SPDX:GPL-3.0-or-later",
+]
+copyright = [
+    "2026 Veysel TURAN",
+]
+website = "https://github.com/g210101021/kicad-to-blender-pro"
+

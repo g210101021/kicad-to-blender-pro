@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Blender backups and temporary files
+*.blend1
+*.blend2
+*.blend@
+*.crash.txt
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/

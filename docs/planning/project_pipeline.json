@@ -1,0 +1,125 @@
+{
+    "project_name": "KiCad-to-Blender-Pro-Addon",
+    "version": "1.0.0",
+    "target_blender_version": "5.2.0 LTS",
+    "reference_board": "/home/a/Belgeler/kiCad work/Deneme/Deneme.wrl",
+    "phases": [
+        {
+            "id": 1,
+            "title": "Altyapı ve Gereksinim Analizi (Environment & Architecture)",
+            "status": "completed",
+            "tasks": [
+                "Blender 5.2 LTS ortamının ve VRML/X3D modülünün doğrulanması",
+                "Deneme.wrl dosyasının mesh, inline obje ve materyal anatomisinin çıkarılması",
+                "Proje mimarisinin ve .json/.me yol haritasının oluşturulması"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "VRML/WRL Akıllı İçe Aktarma Motoru (Smart Importer)",
+            "status": "completed",
+            "tasks": [
+                "Blender dahili X3D/VRML eklentisini programatik kontrol etme ve otomatik aktifleştirme",
+                "Dosya yolu ve inline kütüphane bağımlılıklarını çözümleyerek kartı hatasız import etme",
+                "Kart merkezleme (Set Origin to Center of Mass) ve doğru Z ekseni düzeltmesi (Up-Vector)",
+                "Birim ve ölçekleme düzeltmesi (KiCad mil/mm -> Blender Metrik metre/mm dönüşümü)"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Mesh Temizleme ve Hiyerarşik Gruplama (Mesh Cleaner & Outliner)",
+            "status": "completed",
+            "tasks": [
+                "6000+ dağınık parçayı analiz ederek katman bazlı filtreleme",
+                "Mantıksal Koleksiyonlar (Collections) oluşturma: Substrate, SolderMask, Copper, Silkscreen, Components",
+                "Kopya ve gereksiz materyalleri (SHAPE_1.001 vb.) tekilleştirme ve temizleme",
+                "Opsiyonel Performans Birleştirme (Batch Join by Material) ile tek tıkla yüksek viewport FPS sağlama",
+                "Opsiyonel Bileşen Hiyerarşisi (Her IC/Soket için Empty Parent) oluşturma"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Fiziksel Tabanlı (PBR) Materyal Motoru (Principled BSDF Engine)",
+            "status": "completed",
+            "tasks": [
+                "FR4 Substrate: Çift katmanlı epoksi cam elyafı altlık materyali (hafif pürüzlü, subsurface scattering)",
+                "Lehim Maskesi (Solder Mask): Yarı saydam, parlak/saten cilalı katman (Yeşil, Siyah, Mavi, Mor, Kırmızı, Beyaz renk presetleri)",
+                "İletken Katman ve Padler: ENIG Altın (Metalik 1.0, Roughness 0.2) ve HASL Kalay/Gümüş lehim yansımaları",
+                "Baskı (Silkscreen): Beyaz mat plastik baskı efekti ve mikro-kabartma (Bump node)",
+                "Elektronik Bileşen Şablonları: Siyah mat kalıp epoksi (IC paketleri), metal bacaklar, seramik ve elektrolitik gövdeler"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Stüdyo Aydınlatması ve Kamera Sahneleme (Studio Setup)",
+            "status": "completed",
+            "tasks": [
+                "Kart boyutlarına (Bounding Box) göre otomatik ölçeklenen 3 noktalı yumuşak stüdyo aydınlatması (Key, Fill, Rim)",
+                "Dengeli ortam için nötr HDRI / World aydınlatma arka planı",
+                "Karta odaklanan ve orantılı uzaklaşan akıllı kamera yerleşimi (İzometrik ve Perspektif modları)",
+                "Tek tıkla 360 derece döner tabla (Turntable 360 Animation) kamera hareketi ekleme"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Blender Kullanıcı Arayüzü (N-Panel UI) ve Eklenti Paketleme",
+            "status": "completed",
+            "tasks": [
+                "3D Viewport N-Panelinde 'KiCad PCB' sekmesi tasarlama",
+                "Tek tık 'Import & Make Ready' akıllı operatörü ekleme",
+                "Hızlı Renk Değiştirici: Canlı renk seçimi (Solder Mask rengini anında değiştirme)",
+                "Blender 5.2 / 4.2 uyumlu 'blender_manifest.toml' ve '__init__.py' ile kurulum paketini (ZIP) hazırlama"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Fiziksel Ölçekleme, Z-Fighting Çözümü ve PCB Metaveri Entegrasyonu",
+            "status": "completed",
+            "tasks": [
+                {
+                    "name": "Gerçek PCB Boyut Doğrulaması (151x95x1.6 mm)",
+                    "status": "completed"
+                },
+                {
+                    "name": "Blender Sahne Birimlerini Milimetreye Ayarlama (scale_length=0.001)",
+                    "status": "completed"
+                },
+                {
+                    "name": "Mikron Seviyesi Fiziksel Katman Z-Ofsetleri ile Z-Fighting Sıfırlama",
+                    "status": "completed"
+                },
+                {
+                    "name": "KiCad PCB Ayrıştırıcı (pcb_parser.py) ile 143 Eleman Metaverisi Eşleme",
+                    "status": "completed"
+                },
+                {
+                    "name": "N-Panel Gerçek Boyut Bilgi Göstergesi Entegrasyonu",
+                    "status": "completed"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Hassas Konum Eşleme, Komponent Bütünlüğü ve Metrik Boyut İzolasyonu",
+            "status": "completed",
+            "tasks": [
+                {
+                    "name": "VRML koordinat sisteminden (obj.location) tam eşleme (0.5 mm altı hata)",
+                    "status": "completed"
+                },
+                {
+                    "name": "Komponent parçalanmalarını önleme ve her elemanı tek parça birleştirme",
+                    "status": "completed"
+                },
+                {
+                    "name": "Sahne birimlerine dokunmadan sadece PCB nesnelerini metreye ölçekleme ve uygulama",
+                    "status": "completed"
+                },
+                {
+                    "name": "Kesin işlem sırası boru hattı mimarisi (Strict Importer Pipeline)",
+                    "status": "completed"
+                }
+            ]
+        }
+    ]
+}
